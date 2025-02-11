@@ -12,10 +12,9 @@ setup(
     packages=find_packages(where='src'),
     package_dir={'': 'src'},
     install_requires=[
-        # List your project dependencies here
         'numpy',
         'opencv-python',
-        'tensorflow',  # or 'torch' if using PyTorch
+        'tensorflow',
         'pandas',
         'scikit-learn',
         'pyspark',

@@ -1,0 +1,54 @@
+Estructura del Proyecto
+1. README.md
+Descripción: Proporciona una visión general del proyecto, instrucciones de instalación, uso y estructura del directorio. También incluye información sobre cómo contribuir y la licencia del proyecto.
+2. requirements.txt
+Descripción: Lista las dependencias necesarias para el proyecto, incluyendo bibliotecas como NumPy, Pandas, OpenCV, TensorFlow, Scikit-learn, PySpark, Matplotlib, Seaborn, Jupyter, y Pytesseract.
+3. setup.py
+Descripción: Contiene la configuración de instalación del proyecto, incluyendo el nombre del paquete, la versión, el autor, la descripción, las dependencias y los requisitos de Python.
+4. main.py
+Descripción: El script principal que inicializa la sesión de Spark, carga y procesa imágenes, entrena el modelo, detecta vallas publicitarias, y muestra los resultados.
+Directorio src/
+src/config/
+Descripción: Contiene archivos de configuración para Spark y el modelo.
+
+spark_config.py: Define la configuración para crear una sesión de Spark optimizada para el procesamiento de imágenes.
+model_config.py: Contiene configuraciones para el modelo, incluyendo hiperparámetros y la ruta del modelo.
+src/data/
+Descripción: Maneja la carga y el preprocesamiento de datos.
+
+data_loader.py: Define funciones para cargar datos desde archivos CSV e imágenes.
+preprocessing.py: Proporciona funciones para el preprocesamiento de datos, incluyendo normalización, augmentación y limpieza.
+src/detection/
+Descripción: Contiene módulos para detectar vallas publicitarias, calcular sus tamaños y extraer texto.
+
+billboard_detector.py: Define una clase para detectar vallas publicitarias en imágenes usando un modelo de TensorFlow.
+size_calculator.py: Define funciones para calcular el tamaño y la relación de aspecto de las vallas publicitarias detectadas.
+text_extractor.py: Define funciones para extraer texto de las vallas publicitarias usando OCR.
+src/model/
+Descripción: Contiene la definición del modelo y la lógica de entrenamiento.
+
+cnn_model.py: Define la arquitectura del modelo CNN para detectar vallas publicitarias.
+distributed_trainer.py: Define una clase para entrenar el modelo usando datos distribuidos con TensorFlow.
+src/utils/
+Descripción: Contiene funciones utilitarias.
+
+spark_utils.py: Proporciona funciones para crear sesiones de Spark, leer y escribir datos, y transformar datos.
+calibration.py: Proporciona funciones para calibrar predicciones y ajustar parámetros del modelo.
+image_utils.py: Proporciona funciones para redimensionar imágenes, convertir a escala de grises, normalizar y aplicar filtros.
+Directorio notebooks/
+Descripción: Contiene notebooks de Jupyter para diversas tareas.
+
+01_data_exploration.ipynb: Explora el conjunto de datos y visualiza distribuciones de datos.
+02_model_training.ipynb: Entrena el modelo y evalúa su rendimiento.
+03_detection_pipeline.ipynb: Integra la carga de datos, el preprocesamiento y la inferencia del modelo.
+04_size_text_analysis.ipynb: Analiza los tamaños y el texto extraído de las vallas publicitarias detectadas.
+Directorio tests/
+Descripción: Contiene archivos de prueba para el proyecto.
+Directorio data/
+Descripción: Contiene datos en bruto, procesados y modelos.
+
+raw/: Almacena los datos en bruto.
+processed/: Almacena los datos procesados.
+models/: Almacena los modelos entrenados.
+Conclusión
+Este proyecto está diseñado para detectar vallas publicitarias en imágenes, calcular sus dimensiones y extraer el texto contenido en ellas. Utiliza técnicas avanzadas de visión por computadora y aprendizaje profundo, y está optimizado para el procesamiento distribuido utilizando Spark. Los notebooks de Jupyter proporcionan un entorno interactivo para la exploración de datos, el entrenamiento del modelo y el análisis de resultados.
